@@ -52,31 +52,10 @@
           <span>{{token.name}}</span>
         </menu-entry>
       </div>
-      <div v-for="token in giteeTokens" :key="token.sub">
-        <menu-entry @click.native="publishGitee(token)">
-          <icon-provider slot="icon" provider-id="gitee"></icon-provider>
-          <div>发布到 Gitee</div>
-          <span>{{token.name}}</span>
-        </menu-entry>
-      </div>
-      <div v-for="token in gitlabTokens" :key="token.sub">
-        <menu-entry @click.native="publishGitlab(token)">
-          <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-          <div>发布到 GitLab</div>
-          <span>{{token.name}}</span>
-        </menu-entry>
-      </div>
       <div v-for="token in giteaTokens" :key="token.sub">
         <menu-entry @click.native="publishGitea(token)">
           <icon-provider slot="icon" provider-id="gitea"></icon-provider>
           <div>发布到 Gitea</div>
-          <span>{{token.name}}</span>
-        </menu-entry>
-      </div>
-      <div v-for="token in googleDriveTokens" :key="token.sub">
-        <menu-entry @click.native="publishGoogleDrive(token)">
-          <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-          <div>发布到 Google Drive</div>
           <span>{{token.name}}</span>
         </menu-entry>
       </div>

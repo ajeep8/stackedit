@@ -49,29 +49,9 @@
         <icon-provider slot="icon" provider-id="blogger"></icon-provider>
         <span>添加Blogger账号</span>
       </menu-entry>
-      <menu-entry @click.native="addDropboxAccount">
-        <icon-provider slot="icon" provider-id="dropbox"></icon-provider>
-        <span>添加Dropbox账号</span>
-      </menu-entry>
-      <menu-entry @click.native="addGithubAccount">
-        <icon-provider slot="icon" provider-id="github"></icon-provider>
-        <span>添加GitHub账号</span>
-      </menu-entry>
-      <menu-entry @click.native="addGiteeAccount">
-        <icon-provider slot="icon" provider-id="gitee"></icon-provider>
-        <span>添加Gitee账号</span>
-      </menu-entry>
-      <menu-entry @click.native="addGitlabAccount">
-        <icon-provider slot="icon" provider-id="gitlab"></icon-provider>
-        <span>添加GitLab账号</span>
-      </menu-entry>
       <menu-entry @click.native="addGiteaAccount">
         <icon-provider slot="icon" provider-id="gitea"></icon-provider>
         <span>添加Gitea账号</span>
-      </menu-entry>
-      <menu-entry @click.native="addGoogleDriveAccount">
-        <icon-provider slot="icon" provider-id="googleDrive"></icon-provider>
-        <span>添加Google Drive账号</span>
       </menu-entry>
       <menu-entry @click.native="addGooglePhotosAccount">
         <icon-provider slot="icon" provider-id="googlePhotos"></icon-provider>
