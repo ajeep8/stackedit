@@ -7,30 +7,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_test:
-    name: Build & Test App
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    # Run build and test only if the commit message says build app
-    if: "contains(github.event.commits[0].message, '[build app]')"
-
-    steps:   
-      - uses: actions/checkout@v2
-
-      - name: setup node
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: |
-          npm i --unsafe-perm
-          npm cache clean --force
-          npm run build
-
   push_to_Docker_Hub:
       name: Push Images to DockerHub
       # The type of runner that the job will run on
