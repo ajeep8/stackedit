@@ -13,29 +13,9 @@
       </menu-entry>
     </div>
     <hr>
-    <menu-entry @click.native="addGithubWorkspace">
-      <icon-provider slot="icon" provider-id="githubWorkspace"></icon-provider>
-      <span>新增 <b>GitHub</b> 文档空间</span>
-    </menu-entry>
-    <menu-entry @click.native="addGiteeWorkspace">
-      <icon-provider slot="icon" provider-id="giteeWorkspace"></icon-provider>
-      <span>新增 <b>Gitee</b> 文档空间</span>
-    </menu-entry>
-    <menu-entry @click.native="addGitlabWorkspace">
-      <icon-provider slot="icon" provider-id="gitlabWorkspace"></icon-provider>
-      <span>新增 <b>GitLab</b> 文档空间</span>
-    </menu-entry>
     <menu-entry @click.native="addGiteaWorkspace">
       <icon-provider slot="icon" provider-id="giteaWorkspace"></icon-provider>
       <span>新增 <b>Gitea</b> 文档空间</span>
-    </menu-entry>
-    <menu-entry @click.native="addGoogleDriveWorkspace">
-      <icon-provider slot="icon" provider-id="googleDriveWorkspace"></icon-provider>
-      <span>新增 <b>Google Drive</b> 文档空间</span>
-    </menu-entry>
-    <menu-entry @click.native="addCouchdbWorkspace">
-      <icon-provider slot="icon" provider-id="couchdbWorkspace"></icon-provider>
-      <span>新增 <b>CouchDB</b> 文档空间</span>
     </menu-entry>
   </div>
 </template>
