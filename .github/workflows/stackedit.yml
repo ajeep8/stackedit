@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm i --unsafe-perm
-          nmp cache clean --force
+          npm cache clean --force
           npm run build
 
   push_to_Docker_Hub:
