@@ -79,16 +79,16 @@ turndown:
 
 # GitHub/GitLab/Gitee/Gitea commit messages
 git:
-  createFileMessage: '{{path}} created from https://stackedit.cn/'
-  updateFileMessage: '{{path}} updated from https://stackedit.cn/'
-  deleteFileMessage: '{{path}} deleted from https://stackedit.cn/'
+  createFileMessage: '{{path}} created from stackedit-cn'
+  updateFileMessage: '{{path}} updated from stackedit-cn'
+  deleteFileMessage: '{{path}} deleted from stackedit-cn'
 
 # Default content for new files
 newFileContent: |
 
 
 
-  > Written with [StackEdit中文版](https://stackedit.cn/).
+  > Written with StackEdit中文版.
 
 # Default properties for new files
 newFileProperties: |
