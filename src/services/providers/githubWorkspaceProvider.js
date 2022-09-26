@@ -119,6 +119,7 @@ export default new Provider({
       path: getAbsolutePath(syncData),
       content: '',
       sha: gitWorkspaceSvc.shaByPath[syncData.id],
+      commitMessage: item.commitMessage,
     });
 
     // Return sync data to save
@@ -178,7 +179,12 @@ export default new Provider({
       },
     };
   },
-  async uploadWorkspaceContent({ token, content, file }) {
+  async uploadWorkspaceContent({
+    token,
+    content,
+    file,
+    commitMessage,
+  }) {
     const path = store.getters.gitPathsByItemId[file.id];
     const absolutePath = `${store.getters['workspace/currentWorkspace'].path || ''}${path}`;
     const res = await githubHelper.uploadFile({
@@ -187,6 +193,7 @@ export default new Provider({
       path: absolutePath,
       content: Provider.serializeContent(content),
       sha: gitWorkspaceSvc.shaByPath[path],
+      commitMessage,
     });
 
     // Return new sync data
@@ -247,15 +254,18 @@ export default new Provider({
         user = author;
       } else if (committer && committer.login) {
         user = committer;
+      } else if (commit && commit.author) {
+        user = commit.author;
       }
-      const sub = `${githubHelper.subPrefix}:${user.id}`;
-      userSvc.addUserInfo({ id: sub, name: user.login, imageUrl: user.avatar_url });
+      const sub = `${githubHelper.subPrefix}:${user.id || user.name}`;
+      userSvc.addUserInfo({ id: sub, name: user.login || user.name, imageUrl: user.avatar_url });
       const date = (commit.author && commit.author.date)
         || (commit.committer && commit.committer.date)
         || 1;
       return {
         id: sha,
         sub,
+        message: commit.message,
         created: new Date(date).getTime(),
       };
     });

@@ -119,6 +119,7 @@ export default new Provider({
       path: getAbsolutePath(syncData),
       content: '',
       sha: gitWorkspaceSvc.shaByPath[syncData.id],
+      commitMessage: item.commitMessage,
     });
 
     // Return sync data to save
@@ -178,7 +179,12 @@ export default new Provider({
       },
     };
   },
-  async uploadWorkspaceContent({ token, content, file }) {
+  async uploadWorkspaceContent({
+    token,
+    content,
+    file,
+    commitMessage,
+  }) {
     const path = store.getters.gitPathsByItemId[file.id];
     const absolutePath = `${store.getters['workspace/currentWorkspace'].path || ''}${path}`;
     const res = await giteeHelper.uploadFile({
@@ -187,6 +193,7 @@ export default new Provider({
       path: absolutePath,
       content: Provider.serializeContent(content),
       sha: gitWorkspaceSvc.shaByPath[path],
+      commitMessage,
     });
 
     // Return new sync data
@@ -259,6 +266,7 @@ export default new Provider({
       return {
         id: sha,
         sub,
+        message: commit.message,
         created: new Date(date).getTime(),
       };
     });
